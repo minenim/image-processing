@@ -1,0 +1,75 @@
+im = imread('http://i.imgur.com/TwDQZKO.jpg');
+r = im(:,:, 1);
+g = im(:,:, 2);
+b = im(:,:, 3);
+ 
+bwrg = abs(double(r) - 80) <= 80;
+bwgg = abs(double(g) - 240) <= 80;
+bwbg = abs(double(b) - 60) <= 80;
+bw = bwrg .* bwgg .* bwbg;
+ 
+bw3 = cat(3, bw,bw,bw);
+img= uint8(double(im) .* bw3);
+figure(1);
+imshow(img)
+ 
+bwr = abs(double(r) - 15) <= 80;
+bwg = abs(double(g) - 110) <= 80;
+bwb = abs(double(b) - 170) <= 80;
+bw = bwr .* bwg .* bwb;
+bw3 = cat(3, bw,bw,bw);
+imgg = uint8(double(im) .* bw3);
+ 
+figure(2);
+imshow(imgg)
+ 
+ 
+bwry = abs(double(r) - 240) <= 40;
+bwgy = abs(double(g) - 220) <= 40;
+bwby = abs(double(b) - 30) <= 40;
+bw = bwry .* bwgy .* bwby;
+ 
+bw3 = cat(3, bw,bw,bw);
+re = uint8(double(im) .* bw3);
+ 
+figure(3);
+imshow(re)
+ 
+bwro = abs(double(r) - 250) <= 50;
+bwgo = abs(double(g) - 120) <= 50;
+bwbo = abs(double(b) - 40) <= 50;
+bw = bwro .* bwgo .* bwbo;
+bw3 = cat(3, bw,bw,bw);
+res = uint8(double(im) .* bw3);
+ 
+figure(4);
+imshow(res)
+ 
+bwrr = abs(double(r) - 190) <= 50;
+bwgr = abs(double(g) - 10) <= 50;
+bwbr = abs(double(b) - 65) <= 50;
+bw = bwrr .* bwgr .* bwbr;
+bw3 = cat(3, bw,bw,bw);
+resi = uint8(double(im) .* bw3);
+ 
+figure(5);
+imshow(resi)
+ 
+bwrb = abs(double(r)-15) <= 60;
+bwgb = abs(double(g) - 75) <= 60;
+bwbb = abs(double(b)-15) <= 60;
+ 
+bw = bwrb .* bwgb .* bwbb;
+bw3 = cat(3, bw,bw,bw);
+resim= uint8(double(im) .* bw3);
+ 
+figure(6);
+imshow(resim)
+ 
+figure(7);
+subplot(2,3,1); imshow(img); title('Green');
+subplot(2,3,2); imshow(imgg); title('Blue');
+subplot(2,3,3); imshow(re); title('Yellow');
+subplot(2,3,4); imshow(res); title('Orange');
+subplot(2,3,5); imshow(resi); title('Red');
+subplot(2,3,6); imshow(resim); title('Black');
