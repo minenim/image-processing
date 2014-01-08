@@ -1,4 +1,4 @@
-I = imread('https://raw.github.com/tugdev/pro-lang/master/matlab/image-processing/sekilleri_goster/coins19.png');
+I = imread('https://raw.github.com/minenim/image-processing/f6c0f62abe8503f7390d45ccbd09c4aba2eb90a3/sekil%20yuvarlak%20mi/coins19.png');
 bw = im2bw(I);
 
 bw = imfill(bw, 'holes');
