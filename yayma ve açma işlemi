@@ -1,5 +1,7 @@
 im=imread('label3.jpg');
 SE=strel('line',12,24);
+% SE=strel('square',12);
+%SE=strel('disk',12);
 IM2= imdilate(im,SE);
 IM3= imopen(IM2,SE);
 subplot(1,3,1), subimage(im);title('orjinal hali');
