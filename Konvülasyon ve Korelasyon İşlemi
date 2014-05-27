@@ -1,0 +1,18 @@
+a=imread('kiraz.jpg');
+b=rgb2gray(a);
+b=im2double(b);
+c = [1,-1]'*[1,-1]*8;
+d=conv2(b,c,'full');
+e=filter2(b,c,'full');
+x=[1,-1]'*[1,-1]*18;
+d1=conv2(b,x,'full');
+e1=filter2(b,x,'full');
+y = [2,-2]'*[2,-2]*8;
+d2=conv2(b,y,'full');
+e2=filter2(b,y,'full');
+subplot(3,2,1),subimage(d);
+subplot(3,2,2),subimage(e);
+subplot(3,2,3),subimage(d1);
+subplot(3,2,4),subimage(e1);
+subplot(3,2,5),subimage(d2);
+subplot(3,2,6),subimage(e2);
