@@ -1,0 +1,20 @@
+a=imread('kiraz.jpg');
+b=rgb2gray(a);
+b=im2double(b);
+[w,h]=size(b);
+for i=2:(w-1)
+for j=2:(h-1)
+fa=i-1;fb=i+1;fc=j-1;fd=j+1;
+fk=b(fa,fc)+b(fa,j)+b(fa,fd)+b(i,fc)+b(i,j)+b(i,fd)+b(fa,fd)+b(fb,fc)+b(fb,j)+b(fb,fd);fm=fk*1/9;
+ort_uc(i,j)=fm; %#ok<*SAGROW>
+if i>2 & j>2 & i<(w-1) & j<(h-1) %#ok<*AND2>
+fe=i-2;ff=i+2;fg=j-2;fh=j+2;
+fk=b(fe,fg)+b(fa,fg)+b(fa,fh)+b(fb,fg)+b(fb,fh)+b(i,fg)+b(i,fh)+b(fe,fc)+b(fe,j)+b(fe,fd)+b(fe,fh)+b(ff,fg)+b(ff,fc)+b(ff,j)+b(ff,fd)+b(ff,fh)+b(fa,fc)+b(fa,j)+b(fa,fd)+b(i,fc)+b(i,j)+b(i,fd)+b(fa,fd)+b(fb,fc)+b(fb,j)+b(fb,fd);
+fm=fk*1/25;
+ort_bes(i,j)=fm;
+end
+end
+end
+subplot(1,3,1),subimage(b);
+subplot(1,3,2),subimage(ort_uc);
+subplot(1,3,3),subimage(ort_bes);
